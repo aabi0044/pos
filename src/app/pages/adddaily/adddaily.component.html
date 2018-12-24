@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-5">
+    <h1> Add Daily Record</h1>
+<form #employeeForm ="ngForm" >
+  <!-- <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="api.selectedEmployee.$key"> -->
+
+<div class="form-group">
+         <label>Add Sale</label>
+       <div class="input-group">
+         <div class="input-group-addon">
+           <i class="fa fa-dollar"></i>
+         </div>
+         <input class="form-control" name="sale"  [(ngModel)]="sale" placeholder="Add today Sale">
+      </div>
+      
+      </div>
+      <div class="form-group">
+        <label>Add Profit</label>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input class="form-control" name="profit"  [(ngModel)]="profit" placeholder="Add today Profit">
+     </div>
+     
+     </div>
+      <div class="form-group">
+      <button type="submit" class="btn-btn-default" (click)="addSale()"> <i class="fa fa-floppy-o"></i> Submit</button>
+      <button type="button" class="btn-btn-default" (click)="deleteSale()" ><i class="fa fa-trash" ></i>Delete</button>
+      <button  type="button" class="btn-btn-default" (click)="resetForm(employeeForm)"><i class="fa fa-repeat"></i>Reset</button>
+      <button  type="button" class="btn-btn-default" (click)="updateSale()"><i class="fa fa-cab"></i>Update</button>
+
+<button [routerLink]="['/addbills']">Add bills</button>
+      </div>
+
+
+</form>
+    
+  </div>
+
+
+<div class="col-md-5">
+  <li>View Products</li>
+  <ul class="list-group hover">
+  
+    <li class="list-group-item " *ngFor="let product of prd" (click)="onItemClick(product)">
+  
+     <b>Sale:</b>  {{product.sale}} - <b>Profit:</b> {{product.profit}} <b>Date:</b> {{product.date | date}}
+    </li>
+  </ul>
+</div>
+</div>
+

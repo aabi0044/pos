@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-5">
+    <h1> Add Products</h1>
+<form #employeeForm ="ngForm" >
+  <!-- <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="api.selectedEmployee.$key"> -->
+<div class="form-group">
+  <label>Product Name</label>
+   <input class="form-control" name="name"  [(ngModel)]="name" placeholder="Full Name"  required>
+</div>
+
+<div class="form-group">
+         <label>Price</label>
+       <div class="input-group">
+         <div class="input-group-addon">
+           <i class="fa fa-dollar"></i>
+         </div>
+         <input class="form-control" name="price"  [(ngModel)]="price" placeholder="price">
+      </div>
+      
+      </div>
+      <div class="form-group">
+        <label>Add percentage</label>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input class="form-control" name="percentage"  [(ngModel)]="percentage" placeholder="percentage">
+     </div>
+     
+     </div>
+     <div class="form-group">
+      <label>Add Quantity</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <input class="form-control" name="quantity"  [(ngModel)]="quantity" placeholder="quantity">
+   </div>
+   
+   </div>
+
+      <div class="form-group">
+      <button type="submit" class="btn-btn-default" (click)="addProductToBill()"> <i class="fa fa-floppy-o"></i> Add To Bill</button>
+    
+      <button  type="button" class="btn-btn-default" (click)="resetForm(employeeForm)"><i class="fa fa-repeat"></i>Reset</button>
+    
+      <button  type="button" class="btn-btn-default" (click)="checkout()"><i class="fa fa-cab"></i>Check Out</button>
+
+      </div>
+
+
+</form>
+    
+  </div>
+
+
+<div class="col-md-5" *ngIf="prd">
+  <li>View Products</li>
+  <label>Search</label>
+  <input class="form-control" name="search" [(ngModel)]="searchText" >
+  <ul class="list-group hover" *ngFor="let product of prd">
+    
+  
+    <li class="list-group-item "  (click)="onItemClick(product)" *ngIf = "filterCondition(product)">
+  
+      {{product.name}} - {{product.price}} (Creation Date) {{product.date | date}}
+    </li>
+  </ul>
+</div>
+</div>
+
