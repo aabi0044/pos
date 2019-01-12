@@ -3,7 +3,7 @@ import{Product}from '../../product.model';
 import { ApiService } from '../../services/api/api.service';
 import { map } from 'rxjs/operators';
 import{NgForm} from '@angular/forms';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-addproducts',
@@ -14,14 +14,18 @@ export class AddproductsComponent implements OnInit {
 searchText = '';
   name: string;
   price:number;
+  quantity:number;
   date= Date.now();
   private product:Product;
-prd;
+products;
 id;
 startDate = new Date();
 endDate = new Date("2018-12-10");
 filterByDate;
 res;
+check;
+filter;
+warrning;
 
   constructor(private api: ApiService) {
     this.daysInMonth(12, 2018);
@@ -37,6 +41,7 @@ res;
 
 
   ngOnInit() {
+    this.getLimitedProducts();
     this.api.getProducts().pipe(map (list => {
       return list.map(
         item => {
@@ -59,7 +64,7 @@ res;
     let p ={
       name:this.name,
       price: this.price,
-     
+     quantity:this.quantity,
       date:this.date
     }
 
@@ -68,16 +73,20 @@ res;
     this.api.createProduct(this.product).then(res => {
       console.log('product Added');
   
-      this.resetForm();
+      
+      this.name='';
+      this.price=0;
 
-    })}
+    })
+    this.resetForm();
+  }
   showProducts() {
     this.api.getProducts().pipe(map(list => list.map(item => {
       let data = item.payload.doc.data();
       let id = item.payload.doc.id;
       return { id, ...data };
     }))).subscribe(res => {
-      this.prd = res;
+      this.products= res;
       console.log(res);
     })
    
@@ -97,7 +106,7 @@ res;
     console.log(prd)
     this.name=prd.name; 
     this.price=prd.price;
-   
+   this.quantity=prd.quantity;
     this.id = prd.id;
     // this.product=Object.assign({},prd); 
   }
@@ -106,7 +115,7 @@ res;
   console.log(this.id);
     let d = {
       name: this.name,
-    
+    quantity:this.quantity,
       price: this.price,
       date:this.date
      
@@ -115,11 +124,11 @@ res;
       console.log('Product updated')
     })
   }
-  deleteProduct(){
+  deleteProduct(item){
 
     if(confirm ("Are you sure to delete ?")==true){
-    this.api.deleteProduct(this.id).then(res=>{
-      console.log(this.id);
+    this.api.deleteProduct(item.id).then(res=>{
+      console.log(item.id);
       console.log('product deletes');
     
     })
@@ -130,37 +139,27 @@ res;
   filterCondition(product){
     return product.name.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
   }
-  checkout() {
-
-
-    //move the cart to an order... 
-    this.res = JSON.parse(localStorage.getItem('cart'));
-    if (this.res != '') {
-      // this.api.bill.customerId = localStorage.getItem('uid');
-      // this.api.bill.email = localStorage.getItem('email');
-      this.api.bill.address = '';
-      // this.api.bill.totalAmount = this.;
-
-
-      this.api.bill.cart = this.api.cart;
-
-      // console.log(this.api.bill.totalAmount);
-      // console.log(this.toknid);
-      //paymemt 
-      /*  
-      stripe-checkout     
-      */
-      // this.openCheckout();
-      //send order to db 
-
-  
-
-
-
+  getLimitedProducts(){
+    this.api.getProducts().pipe(map(list => list.map(item => {
+      let data = item.payload.doc.data();
+      let id = item.payload.doc.id;
+      return { id, ...data };
+    }))).subscribe(res => {
+      this.check=res;
+      console.log(res);
+      let f= this.check.filter(elem=> elem.quantity<16);
+      console.log(f);
+      this.filter=f;
+      if(this.filter!=[]){
+        console.log("object");
+        this.warrning=true;
+      }
+        
+      })
     }
-    else {
-      console.log('Nothing in the Cart')
-    }
-
-  }
+   
+ 
+  // let f = this.filterByDate.filter(elem => elem.date > this.startDate && elem.date < this.endDate);
+ 
+ 
 }

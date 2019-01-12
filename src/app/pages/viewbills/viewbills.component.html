@@ -1,3 +1,64 @@
-<p>
-  viewbills works!
-</p>
+<div class="row">
+  <!-- <div class="col-md-3"> -->
+     <!-- <h2><ul>Add New Dealer</ul> </h2>
+ 
+ 
+ <div class="form-group"><i class="title">  <strong> Name </strong></i>
+          
+   <input type="text" [(ngModel)]="name" name="name" placeholder="Enter Name" class="form-control" >
+   <i class="title"><b>Phone number</b> </i>
+   <input class="form-control" name="number" [(ngModel)]="number" placeholder="Enter Phone Number">
+   
+
+  </div>
+  <div class="row">
+    <div class="col-md-6"></div>
+   <div class="col-md-6 text-right">
+    <button type="button"  class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="addNewCustomer()">Create User</button>
+   </div>
+ </div> -->
+  <!-- </div> -->
+ 
+<div class="col-md-12">
+ <div class="container">
+     <div class="row">
+         <div class="col-xl-3 col-lg-12" *ngFor="let item of user" >
+     <div class="card mb-4"  (click)="onClick(item)">
+         
+         <div class="card-body">
+           <div class="card-block" >
+             <div class="align-self-center halfway-fab text-center">
+               <a class="info" >{{item.name}}</a>
+                   
+            
+             </div>
+             <div class="text-center">
+               <span class="font-medium-2 text-uppercase"></span>
+               <p class="grey font-small-2"></p>
+             </div>
+             <div class="row">
+               <div class="col-12">
+                 <ul class="no-list-style pl-0 text-center">
+                   <li class="mb-1">
+                     <span class="text-bold-500 primary"><a><i class="icon-price font-small-3"></i> Number:</a></span>
+                     <span class="display-block overflow-hidden">{{item.number}}</span>
+                   </li>
+                   
+                   <li class="mb-1">
+                       <span class="text-bold-500 primary"><a><i class="ft-globe font-small-3"></i>NO of bills:</a></span>
+                       <span class="display-block overflow-hidden"></span>
+                     </li>
+                 </ul>
+               </div>
+             
+             </div>
+           </div>
+         </div>
+       </div>
+         </div>
+ 
+     </div>
+   </div>
+   
+</div>
+</div>

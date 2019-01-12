@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{ApiService}from '../../services/api/api.service';
 import { map } from 'rxjs/operators';
+import{Router}from '@angular/router';
+
 
 @Component({
   selector: 'app-viewbills',
@@ -12,11 +14,12 @@ bills;
 startDate= new Date();
 endDate=new Date("2018-12-30");
 filterByDate;
-  constructor(private api:ApiService) { this.daysInMonth(12,2018)}
+user;
+  constructor(private api:ApiService,private router:Router) { this.daysInMonth(12,2018)}
 
   ngOnInit() {
     this.viewBills();
-    
+    this.getUsers();
   }
   viewBills(){
     this.api.readBills().pipe(map(list=>list.map(item=>{
@@ -37,6 +40,29 @@ filterByDate;
 
     console.log(this.startDate, this.endDate);
 }
+getUsers(){
+  this.api.getUSers().pipe(map(list=>list.map(item=>{
+    let data=item.payload.doc.data();
+    let id=item.payload.doc.id;
+  return{id,...data}
+  }))).subscribe(res=>{
+    console.log(res);
+    this.user=res;
+  })
+//   this.api.getspecificpersonbill(this.user.id).subscribe(res=>{
+//   let coming=res;
+// console.log(coming);
 
+//   })
+}
+onClick(item){
+  let id =item.id;
+  let name=item.name;
+  let number=item.number;
+  this.api.userid=id;
+  this.api.username=name;
+  this.router.navigate(['billlist'])
+  
+}
 
 }

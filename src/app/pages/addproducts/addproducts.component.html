@@ -1,48 +1,133 @@
-<div class="row">
-  <div class="col-md-5">
-    <h1> Add Products</h1>
-<form #employeeForm ="ngForm" >
-  <!-- <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="api.selectedEmployee.$key"> -->
-<div class="form-group">
-  <label>Name</label>
-   <input class="form-control" name="name"  [(ngModel)]="name" placeholder="Full Name" required>
-</div>
-<div class="form-group">
-         <label>Salary</label>
-       <div class="input-group">
-         <div class="input-group-addon">
-           <i class="fa fa-dollar"></i>
-         </div>
-         <input class="form-control" name="salary"  [(ngModel)]="price" placeholder="Salary">
+
+     <div class="container">
+
+      <div class="row"> </div>
+      <h2 class="heading">Enter New Products</h2>
+    
+  
+      <div class="row"> 
+        
+        <div class="col-md-6">
+          <div class="form-group"><i class="title">  <strong> Name </strong></i>
+           
+           <input type="text" name="name" [(ngModel)]="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name">
+           <i class="title"><b>Price</b> </i>
+           <input class="form-control" name="price" [(ngModel)]="price" placeholder="Enter Price" type="number">
+           <i class="title"><b>Quantity</b> </i>
+           <input class="form-control" name="quantity" [(ngModel)]="quantity" placeholder="Enter Quantity" type="number     ">
+       
+        </div>
+    
+          <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-raised mr-1 shadow-z-2 btn-warning main" (click)="updateProduct()">Update</button>
+    
+            </div>
+            <div class="col-md-3">
+        <button type="button"  class="btn btn-raised mr-1 shadow-z-2 btn-info main"  routerLink="/type">Create Bill</button>
+      </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="addProduct()">Add</button>
+      </div>
+   
+      <hr>
+      <h2 class="heading"><i class="fa fa-star-o star"></i>Limited Stock<i class="fa fa-star-o star"></i></h2>    
+  <hr>
+      <table class="table">
+        
+          <thead>
+              <tr class="table-head">
+                  <th class="text-center">#</th>
+                  <th>Name</th>
+                 
+                  <th class="text-right">Price</th>
+                  <th class="text-right">Quantity</th>
+                  <th class="text-right">Actions</th>
+              </tr>
+          </thead>
+          <tbody  *ngFor="let item of filter;let i=index">
+             
+               
+              <tr  *ngIf="warrning" class="items table-limited"  >
+                  <td class="text-center">{{i+1}}</td>
+                  <td>{{item.name}}</td>
+                  
+                  <td class="text-right">{{item.price}}</td>
+                  <td class="text-right limit" >{{item.quantity}}</td>
+                  <td class="td-actions text-right">
+                      
+                      <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm" (click)="deleteProduct(item)">
+                          <i class="tim-icons icon-simple-remove"></i>
+                          <i>Delete</i>
+                      </button>
+                     
+                      <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm" (click)="onItemClick(item)">
+                          <i>Update</i>
+                      </button>
+                  </td>
+              </tr>
+            
+            
+              
+          </tbody>
+      </table>
+
+  
+
+      </div>
+        </div>
+         <br>
+         <br>
+        
+       <div class="col-md-6"> 
+          <div class="input-group" >
+              <div class="input-group-prepend">
+                <span class="input-group-text padd1"><i class="fa fa-search"></i></span>
+              </div>
+              <input type="text" class="form-control padd" placeholder="Search" name="searchText" [(ngModel)]="searchText" >
+            </div><table class="table">
+        
+          <thead>
+              <tr class="table-head">
+                  <th class="text-center">#</th>
+                  <th> <b>Name</b></th>
+                 
+                  <th class="text-right"> <b>Price</b></th>
+                   
+                  <th class="text-right"> <b>Quantity</b></th>
+                  <th class="text-right"> <b>Actions</b></th>
+              </tr>
+          </thead>
+          <tbody  *ngFor="let item of products;let i=index">
+              
+            
+              <tr  *ngIf = "filterCondition(item)" class="items"  >
+                  <td class="text-center">{{i+1}}</td>
+                  <td>{{item.name}}</td>
+                  
+                  <td class="text-right">{{item.price}}</td>
+                  <td class="text-right">{{item.quantity}}</td>
+                  <td class="td-actions text-right">
+                      
+                      <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm" (click)="deleteProduct(item)">
+                          <i class="tim-icons icon-simple-remove"></i>
+                          <i>Delete</i>
+                      </button>
+                     
+                      <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm" (click)="onItemClick(item)">
+                          <i>Update</i>
+                      </button>
+                  </td>
+              </tr>
+              
+          </tbody>
+      </table></div>
       </div>
       
-      </div>
-      <div class="form-group">
-      <button type="submit" class="btn-btn-default" (click)="addProduct()"> <i class="fa fa-floppy-o"></i> Submit</button>
-      <button type="button" class="btn-btn-default" (click)="deleteProduct()" ><i class="fa fa-trash" ></i>Delete</button>
-      <button  type="button" class="btn-btn-default" (click)="resetForm(employeeForm)"><i class="fa fa-repeat"></i>Reset</button>
-      <button  type="button" class="btn-btn-default" (click)="updateProduct()"><i class="fa fa-cab"></i>Update</button>
-
-<button [routerLink]="['/addbills']">Add bills</button>
-      </div>
-
-
-</form>
-    
+  
   </div>
-
-
-<div class="col-md-5" *ngIf="prd">
-  <li>View Products</li>
-  <label>Search</label>
-  <input class="form-control" name="search" [(ngModel)]="searchText" >
-  <ul class="list-group hover" *ngFor="let product of prd"  >
   
-    <li class="list-group-item " (click)="onItemClick(product)" *ngIf = "filterCondition(product)"   >
+     
   
-      {{product.name}} - {{product.price}} (Update Date) {{product.date | date}}
-    </li>
-  </ul>
-</div>
-</div>
-
+     
+      

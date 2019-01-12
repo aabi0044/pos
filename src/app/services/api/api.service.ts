@@ -12,17 +12,19 @@ export class ApiService {
   index = 0;
 
   bill = {
+    cid:'',
     cart: [],
     customerName:'',
     address: '',
     totalactual:null,
     totaldiscount: null,
     totalsave: null,
-    date: Date
+    date: Date.now()
   }
   amount: number;
   total: number;
-
+userid;
+username;
 
   constructor(private afs: AngularFirestore) {
     if (localStorage.getItem('cart') !== null) {
@@ -55,7 +57,7 @@ export class ApiService {
     return this.afs.doc('users/' + uid).delete();
 
   }
-
+//==========================================================================================
   createProduct(data) {
     return this.afs.collection('products').add(data);
   }
@@ -69,7 +71,7 @@ export class ApiService {
     return this.afs.collection('products').snapshotChanges();
   }
   //UPDATE 
-  updateProduct(uid, data) {
+    updateProduct(uid, data) {
     return this.afs.doc('products/' + uid).update(data);
   }
   //Delete 
@@ -192,5 +194,15 @@ export class ApiService {
 
     return this.afs.doc('sales/' + uid).delete();
 
+  }
+  getspecificpersonbill(id){
+ 
+      console.log(id);
+      return this.afs.collection('bills', ref => ref.where('cid', '==', id)).snapshotChanges();
+    
+  }
+  getSpecificBill(id){
+    console.log(id);
+    return this.afs.doc('bills/' +id).valueChanges();
   }
 }

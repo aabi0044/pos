@@ -12,11 +12,12 @@ export class TypeComponent implements OnInit {
 
 name;
 number;
-  
+user;
+noofbills;
     constructor(private api:ApiService,private router :Router) { }
   
     ngOnInit() {
-  
+  this.getUsers();
      
     }
     addNewCustomer(){
@@ -27,6 +28,8 @@ number;
   this.api.createUser(data).then(res=>{
     console.log("user Created");
   })
+  this.name='';
+  this.number=null;
 
 }
 getUsers(){
@@ -36,6 +39,21 @@ getUsers(){
   return{id,...data}
   }))).subscribe(res=>{
     console.log(res);
+    this.user=res;
   })
+//   this.api.getspecificpersonbill(this.user.id).subscribe(res=>{
+//   let coming=res;
+// console.log(coming);
+
+//   })
+}
+onClick(item){
+  let id =item.id;
+  let name=item.name;
+  let number=item.number;
+  this.api.bill.cid=id;
+  this.api.bill.customerName=name;
+  this.router.navigate(['addbills'])
+  
 }
 }

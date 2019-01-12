@@ -14,7 +14,7 @@ password;
   ngOnInit() {
   }
   login(){
-    if(this.usname=='abdul'&&this.password=='abdul4344'){
+    if(this.password=='abdul4344'){
 this.router.navigate(['/dashboard']);
     }
 else {

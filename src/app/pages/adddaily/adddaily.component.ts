@@ -14,7 +14,7 @@ export class AdddailyComponent implements OnInit {
 
 
 private daily:Daily;
-
+searchText='';
   sale: number;
   profit:number;
   date= Date.now();
@@ -97,11 +97,11 @@ console.log(p);
       console.log('Product updated')
     })
   }
-  deleteSale(){
-
+  deleteSale(item){
+let id=item.id;
     if(confirm ("Are you sure to delete ?")==true){
-    this.api.deleteSale(this.id).then(res=>{
-      console.log(this.id);
+    this.api.deleteSale(id).then(res=>{
+      console.log(id);
       console.log('product deletes');
     
     })
@@ -136,5 +136,8 @@ console.log(p);
 
    
   }
+  // filterCondition(product){
+  //   return product.profit.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+  // }
 
 }

@@ -5,6 +5,7 @@ import{RouterModule}from '@angular/router';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,14 @@ import { ViewbillsComponent } from './pages/viewbills/viewbills.component';
 import { AdddailyComponent } from './pages/adddaily/adddaily.component';
 import { ViewdailyComponent } from './pages/viewdaily/viewdaily.component';
 import { PendingComponent } from './pages/dashboard/pending/pending.component';
+import { TypeComponent } from './pages/type/type.component';
+import{ NavbarComponent}from './services/shared/navbar/navbar.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { BilllistComponent } from './pages/billlist/billlist.component';
+import { DetailedbillComponent } from './pages/detailedbill/detailedbill.component';
+import { SaleoutComponent } from './pages/saleout/saleout.component';
+import { ViewsaleoutComponent } from './pages/viewsaleout/viewsaleout.component';
+
 // import { TypeComponent } from './pages/type/type.component';
 
 @NgModule({
@@ -29,11 +38,20 @@ import { PendingComponent } from './pages/dashboard/pending/pending.component';
     ViewbillsComponent,
     AdddailyComponent,
     ViewdailyComponent,
-    PendingComponent
+    PendingComponent,
+    TypeComponent,
+    NavbarComponent,
+    CartComponent,
+    BilllistComponent,
+    DetailedbillComponent,
+    SaleoutComponent,
+    ViewsaleoutComponent
+    
     // TypeComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AngularFireModule.initializeApp(environment.fireConfig),
     AngularFirestoreModule,
     AppRoutingModule,
@@ -44,11 +62,17 @@ import { PendingComponent } from './pages/dashboard/pending/pending.component';
 
         {path:'addproducts',component:AddproductsComponent},
         {path:'addbills',component:AddbillsComponent},
-        // {path:'type',component:TypeComponent},
+    
+        {path:'type',component:TypeComponent},
         {path:'viewbills',component:ViewbillsComponent},
+        {path:'billlist',component:BilllistComponent},
+        {path:'detailedbill',component:DetailedbillComponent},
+        {path:'detailedbill/:id',component:DetailedbillComponent},
+
         {path:'adddaily',component:AdddailyComponent},
         {path:'viewdaily',component:ViewdailyComponent},
-        
+        {path:'adddealer',component:TypeComponent},
+        {path:'cart',component:CartComponent},
      
   
       ])
