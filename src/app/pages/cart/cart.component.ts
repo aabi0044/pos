@@ -16,6 +16,10 @@ net;
 net1;
 quantity;
 dealprice;
+ actualquantity=0;
+leftquantity=0;
+amadName;
+amadPrice;
   constructor(private api:ApiService,private router:Router) { }
 
 
@@ -34,33 +38,50 @@ dealprice;
     // this.total = 0;
   }
 checkout(){
+
+ 
   console.log(this.api.cart);
   let len=this.api.cart.length;
+  console.log(len);
   for(let i=0;i<len;i++){
     let res=this.api.cart[i];
     console.log(res);
-let id=res.id;
+let id=res.prdid;
+
+console.log(id);
 let quantity=res.quantity;
 this.api.getProduct(id).subscribe(respo=>{
   this.amad=respo;
-  console.log(this.amad.quantity);
-  let acutualquantity=this.amad.quantity;
-  let leftquantity=acutualquantity-quantity;
-  let name=this.amad.name;
-  let price=this.amad.price;
 
-  console.log(leftquantity);
-  let data={
-    quantity:leftquantity,
-    name:name,
-    price:price
-  }
-this.api.updateProduct(id,data).then(respon=>{
-  console.log("product Quantity Updated");
+ console.log(this.amad);
+
+ console.log(typeof this.amad.quantity);
+  this.actualquantity=Number(this.amad.quantity) ;
+  console.log(this.actualquantity);
+ 
+  
+
 })
+
+console.log(typeof this.actualquantity);
+console.log(this.actualquantity);
+console.log(quantity);
+this.leftquantity=this.actualquantity+quantity;
+console.log(this.leftquantity);
+//  this.amadName=this.amad.name;
+// this.amadPrice=this.amad.price;
+
+console.log(this.leftquantity);
+let data={
+  quantity:this.leftquantity,
+ 
+}
+this.api.updateProduct(id,data).then(resp=>{
+  console.log("product Quantity Updated");
 })
   
   }
+  console.log("loop End");
 }
 checkout1() {
   
@@ -104,7 +125,7 @@ totalOfBill() {
     this.quantity=quan;
   }
   for (let j = 0; j < len; j++) {
-    let m = parseInt(x[j].deal);
+    let m = parseInt(x[j].totalDeal);
     deal = (m + deal);
     this.dealprice=deal;
 

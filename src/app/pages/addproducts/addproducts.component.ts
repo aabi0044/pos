@@ -76,6 +76,7 @@ warrning;
       
       this.name='';
       this.price=0;
+      this.quantity=0;
 
     })
     this.resetForm();
@@ -98,7 +99,8 @@ warrning;
     this.product={
     
       name:'',
-      price:0
+      price:0,
+      quantity:0
     }
   }
   }

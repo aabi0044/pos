@@ -66,6 +66,9 @@ username;
   getProduct(uid) {
     return this.afs.doc('products/' + uid).valueChanges();
   }
+  getproduct(uid){
+    return this.afs.doc('products/'+uid).get();
+  }
   //Read All
   getProducts() {
     return this.afs.collection('products').snapshotChanges();
