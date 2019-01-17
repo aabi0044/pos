@@ -45,6 +45,7 @@ export class BilllistComponent implements OnInit {
     let e=0;
     let f=0;
     let g=0;
+    console.log(this.dp);
       this.d= Date.parse(this.dp);
     
       let l = new Date(this.d);
