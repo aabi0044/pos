@@ -63,8 +63,7 @@ export class CartComponent implements OnInit {
           console.log('updtaed');
         })
 
-
-
+     
       })
 
 
@@ -79,13 +78,15 @@ export class CartComponent implements OnInit {
     this.api.bill.cart = this.api.cart;
     console.log(this.api.bill);
 
-    // this.api.addBill(this.api.bill).then(res => {
-    //   console.log(res);
-
-    //   this.clearCart();
-    //   this.net=0;
-    //   this.router.navigate(['/addbills'])
-    // })
+    this.api.addBill(this.api.bill).then(res => {
+      console.log(res);
+// this.checkout();
+      this.clearCart();
+      this.net=0;
+      this.net1=0;
+      this.quantity=0;
+      this.router.navigate(['/addbills'])
+    })
 
   }
   totalOfBill() {
