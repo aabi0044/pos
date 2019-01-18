@@ -80,7 +80,7 @@ export class CartComponent implements OnInit {
 
     this.api.addBill(this.api.bill).then(res => {
       console.log(res);
-// this.checkout();
+this.checkout();
       this.clearCart();
       this.net=0;
       this.net1=0;
