@@ -50,18 +50,20 @@ let id=res.prdid;
 
 console.log(id);
 let quantity=res.quantity;
-this.api.getProduct(id).subscribe(respo=>{
-  this.amad=respo;
-
- console.log(this.amad);
-
- console.log(typeof this.amad.quantity);
-  this.actualquantity=Number(this.amad.quantity) ;
-  console.log(this.actualquantity);
- 
+this.api.getProduct(id).toPromise().then(
+  respo=>{
+    this.amad=respo;
   
-
-})
+   console.log(this.amad);
+  
+   console.log(typeof this.amad.quantity);
+    this.actualquantity=Number(this.amad.quantity) ;
+    console.log(this.actualquantity);
+   
+    
+  
+  }
+)
 
 console.log(typeof this.actualquantity);
 console.log(this.actualquantity);
@@ -76,9 +78,9 @@ let data={
   quantity:this.leftquantity,
  
 }
-this.api.updateProduct(id,data).then(resp=>{
-  console.log("product Quantity Updated");
-})
+// this.api.updateProduct(id,data).then(resp=>{
+//   console.log("product Quantity Updated");
+// })
   
   }
   console.log("loop End");
