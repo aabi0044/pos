@@ -129,7 +129,7 @@ this.api.bill.totaldeal=this.dealprice;
     afterdeal = this.net1 - this.dealprice;
     this.net1 = afterdeal;
     console.log(this.net1);
-
+this.api.bill.totalsave=this.api.bill.totalactual-this.net;
     saveBill = totalBill - totalSale;
     // this.bill.totalActual = totalSale;
     // this.bill.totalSale = totalBill;
