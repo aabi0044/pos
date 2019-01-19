@@ -36,6 +36,7 @@ export class AddbillsComponent implements OnInit {
   searchText = '';
 uid;
   constructor(private api: ApiService,private route:ActivatedRoute,private router:Router) { 
+   console.log(this.api.bill.cid);
     this.uid = this.route.snapshot.params['id'];
     console.log(this.uid);
     if(this.uid==undefined){
