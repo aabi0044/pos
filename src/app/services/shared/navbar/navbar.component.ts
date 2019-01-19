@@ -13,15 +13,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
   }
-  onClick(){
-    console.log(this.api.bill.cid);
-    if(this.api.bill.cid==undefined){
-      this.router.navigate(['/type'])
-    }
-    else{
-      this.router.navigate(['/addbill'])
-    }
-  }
+ 
 
 
 }
