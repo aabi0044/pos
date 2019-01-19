@@ -20,6 +20,7 @@ export class ApiService {
     totaldiscount: 0,
     totalsave: 0,
     totaldeal:0,
+    totalquantity:0,
     date: Date.now()
   }
   amount: number;

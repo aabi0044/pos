@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
     let index = this.api.cart.findIndex(element => element.id === id);
     this.api.cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.api.cart));
+    this.totalOfBill();
   }
   clearCart() {
     this.api.cart = [];
@@ -103,22 +104,25 @@ this.checkout();
       let l = parseInt(x[i].totalActualPrice);
       totalBill = (l + totalBill);
       this.net = totalBill;
+      this.api.bill.totalactual=this.net;
     }
     for (let j = 0; j < len; j++) {
       let m = parseInt(x[j].totalDiscountPrice);
       totalSale = (m + totalSale);
       this.net1 = totalSale;
+      this.api.bill.totaldiscount=this.net1;
     }
     for (let j = 0; j < len; j++) {
       let m = parseInt(x[j].quantity);
       quan = (m + quan);
       this.quantity = quan;
+      this.api.bill.totalquantity=this.quantity;
     }
     for (let j = 0; j < len; j++) {
       let m = parseInt(x[j].totalDeal);
       deal = (m + deal);
       this.dealprice = deal;
-
+this.api.bill.totaldeal=this.dealprice;
     }
     console.log(this.net1);
     console.log(this.dealprice);
