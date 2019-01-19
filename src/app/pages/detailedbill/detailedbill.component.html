@@ -49,9 +49,11 @@
                                           <th>#</th>
                                           <th>Item Name</th>
                                           <th class="text-right">Price</th>
-                                          <th class="text-right">Warrenty Type</th>
+                                          <th class="text-right">Deal</th>
                                           <th class="text-right">Quantity</th>
-                                          <th class="text-right">Amount</th>
+                                          <th class="text-right">%age</th>
+                                          <th class="text-right">Total</th>
+                                          <th class="text-right">Dis.Total</th>
                                       </tr>
                                   </thead>
                                   <tbody >
@@ -60,10 +62,12 @@
                                           <td>
                                               <p>{{j.name}}</p>
                                                   </td>
-                                          <td class="text-right">{{j.saleprice}}</td>
-                                          <td *ngIf="j.warrenty!=''" class="text-right warrenty">{{j.warrenty}}</td>
+                                          <td class="text-right">{{j.price}}</td>
+                                          <td *ngIf="j.warrenty!=''" class="text-right warrenty">{{j.deal}}</td>
                                           <td class="text-right">{{j.quantity}}</td>
-                                          <td class="text-right">{{j.saleTotal}}</td>
+                                          <td class="text-right">{{j.percentage}}</td>
+                                          <td class="text-right">{{j.totalActualPrice}}</td>
+                                          <td class="text-right">{{j.totalDiscountPrice}}</td>
                                       </tr>
                                      
                                   </tbody>
