@@ -39,12 +39,13 @@ uid;
   constructor(private api: ApiService,private route:ActivatedRoute,private router:Router) { 
    console.log(this.api.bill.cid);
    if(this.api.bill.cid==''){
+    this.router.navigate(['/type']);
      console.log("object");
    }
     this.uid = this.route.snapshot.params['id'];
     console.log(this.uid);
     // if(this.uid==undefined){
-    //   this.router.navigate(['/type']);
+    // 
     // }
   }
 
