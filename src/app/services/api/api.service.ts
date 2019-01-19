@@ -16,9 +16,9 @@ export class ApiService {
     cart: [],
     customerName:'',
     address: '',
-    totalactual:null,
-    totaldiscount: null,
-    totalsave: null,
+    totalactual:0,
+    totaldiscount: 0,
+    totalsave: 0,
     totaldeal:0,
     date: Date.now()
   }
