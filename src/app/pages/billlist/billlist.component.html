@@ -99,15 +99,17 @@
                                   <th>No Of Products</th>
                                   <th>Total Price</th>
                                   <th>Creation Date</th>
+                                  <th></th>
                               </tr>
                           </thead>
                           <tbody *ngFor="let item of bills;let i=index">
-                              <tr  (click)="onClickBill(item)">
-                                  <th scope="row">{{i+1}}</th>
-                                  <td>{{item.id}}</td>
-                                  <th></th>
-                                  <td>{{item.totalSale}}</td>
-                                  <td>{{item.date | date  :"medium"}}</td>
+                              <tr  >
+                                  <th scope="row" (click)="onClickBill(item)">{{i+1}}</th>
+                                  <td (click)="onClickBill(item)">{{item.id}}</td>
+                                  <th (click)="onClickBill(item)"></th>
+                                  <td (click)="onClickBill(item)">{{item.totalSale}}</td>
+                                  <td (click)="onClickBill(item)">{{item.date | date  :"medium"}}</td>
+                                  <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
                               </tr>
                             
                           </tbody>

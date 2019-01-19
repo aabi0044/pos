@@ -19,6 +19,7 @@ export class ApiService {
     totalactual:null,
     totaldiscount: null,
     totalsave: null,
+    totaldeal:0,
     date: Date.now()
   }
   amount: number;
@@ -133,7 +134,8 @@ username;
   }
   // DELETE 
   removebill(id) {
-    return this.afs.doc('bills/' + id).valueChanges();
+    console.log(id);
+    return this.afs.doc('bills/' + id).delete();
   }
   //UPDATE 
 

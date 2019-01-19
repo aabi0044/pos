@@ -390,4 +390,11 @@ export class BilllistComponent implements OnInit {
        }
        console.log(this.year);
      }
+     deleteBill(item){
+       let id =item.id;
+       console.log(id);
+       this.api.removebill(id).then(res=>{
+         console.log("deleted");
+       })
+     }
 }
