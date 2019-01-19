@@ -62,7 +62,7 @@ import { ViewsaleoutComponent } from './pages/viewsaleout/viewsaleout.component'
 
         {path:'addproducts',component:AddproductsComponent},
         {path:'addbills',component:AddbillsComponent},
-    
+        {path:'addbills/:id',component:AddbillsComponent},
         {path:'type',component:TypeComponent},
         {path:'viewbills',component:ViewbillsComponent},
         {path:'billlist',component:BilllistComponent},

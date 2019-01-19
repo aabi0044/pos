@@ -53,7 +53,7 @@ onClick(item){
   let number=item.number;
   this.api.bill.cid=id;
   this.api.bill.customerName=name;
-  this.router.navigate(['addbills'])
+  this.router.navigate(['addbills/'+id])
   
 }
 }

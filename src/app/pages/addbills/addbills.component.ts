@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api/api.service';
 import { map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addbills',
@@ -34,9 +35,12 @@ export class AddbillsComponent implements OnInit {
   id;
   searchText = '';
 uid;
-  constructor(private api: ApiService,private route:ActivatedRoute) { 
+  constructor(private api: ApiService,private route:ActivatedRoute,private router:Router) { 
     this.uid = this.route.snapshot.params['id'];
     console.log(this.uid);
+    if(this.uid==undefined){
+      this.router.navigate(['/type']);
+    }
   }
 
   ngOnInit() {

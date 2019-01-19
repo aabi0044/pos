@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
   }
   onClick(){
+    console.log(this.api.bill.cid);
     if(this.api.bill.cid==undefined){
       this.router.navigate(['/type'])
     }
