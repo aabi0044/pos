@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-addbills',
@@ -37,11 +38,14 @@ export class AddbillsComponent implements OnInit {
 uid;
   constructor(private api: ApiService,private route:ActivatedRoute,private router:Router) { 
    console.log(this.api.bill.cid);
+   if(this.api.bill.cid==''){
+     console.log("object");
+   }
     this.uid = this.route.snapshot.params['id'];
     console.log(this.uid);
-    if(this.uid==undefined){
-      this.router.navigate(['/type']);
-    }
+    // if(this.uid==undefined){
+    //   this.router.navigate(['/type']);
+    // }
   }
 
   ngOnInit() {
