@@ -29,6 +29,9 @@ export class CartComponent implements OnInit {
     if(this.api.bill.cid==''){
      
       this.clearCart();
+      this.net=0;
+      this.net1=0;
+      this.quantity=0;
      }
   }
 
