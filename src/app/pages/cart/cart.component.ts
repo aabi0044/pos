@@ -26,6 +26,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.totalOfBill();
+    if(this.api.bill.cid==''){
+     
+      this.clearCart();
+     }
   }
 
   remove(id) {
