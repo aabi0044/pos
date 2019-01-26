@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ApiService {
   cart: any[] = [];
+  salecart: any[] = [];
   data = [];
   index = 0;
 
@@ -240,26 +241,26 @@ username;
     return this.afs.doc('saleitems/' + id).valueChanges();
   }
   // ============================================= sale cart==================
-  saveToCart(cart) {
+   saveToSaleCart(cart) {
     let data = JSON.stringify(cart);
-    localStorage.setItem('cart', data);
+    localStorage.setItem('salecart', data);
   }
 
-  getSavedCart() {
-    return JSON.parse(localStorage.getItem('cart')) || [];
+  getSavedSaleCart() {
+    return JSON.parse(localStorage.getItem('salecart')) || [];
   }
 
-  clearSavedCart() {
-    localStorage.removeItem('cart');
+  clearSavedSaleCart() {
+    localStorage.removeItem('salecart');
   }
 
 
 
-  addItemToCart(item) {
-    return this.cart.push(item);
+  addItemToSaleCart(item) {
+    return this.salecart.push(item);
   }
-  removeItemFromCart(index) {
-    this.cart.splice(index, 1);
+  removeItemFromSaleCart(index) {
+    this.salecart.splice(index, 1);
   }
 
 }
