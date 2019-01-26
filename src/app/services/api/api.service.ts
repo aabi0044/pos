@@ -254,8 +254,6 @@ username;
     localStorage.removeItem('salecart');
   }
 
-
-
   addItemToSaleCart(item) {
     return this.salecart.push(item);
   }
