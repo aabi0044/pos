@@ -21,7 +21,7 @@ export class ApiService {
     totalsave: 0,
     totaldeal:0,
     totalquantity:0,
-    date: Date.now()
+    date: new Date()
   }
   amount: number;
   total: number;
@@ -210,5 +210,33 @@ username;
   getSpecificBill(id){
     console.log(id);
     return this.afs.doc('bills/' +id).valueChanges();
+  }
+   /* ---------------sales--------------------------------------------------------------------------- */
+
+  //CREATE
+  addSaleItem(data) {
+    console.log(data);
+    return this.afs.collection('saleitems').add(data);
+  }
+
+  //READ ONE
+  readSaleItem(id) {
+
+    return this.afs.doc('saleitems/' + id).valueChanges();
+  }
+  //READ ALL
+  readSaleItems() {
+    return this.afs.collection('saleitems').snapshotChanges();
+
+  }
+  // DELETE 
+  removeSaleItem(id) {
+    console.log(id);
+    return this.afs.doc('saleitems/' + id).delete();
+  }
+  //UPDATE 
+
+  updateSaleItem(id) {
+    return this.afs.doc('saleitems/' + id).valueChanges();
   }
 }

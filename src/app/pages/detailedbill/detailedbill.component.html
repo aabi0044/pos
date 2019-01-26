@@ -76,15 +76,23 @@
                       </div>
                       <div class="row">
                           
-                          <div class="col-md-6 col-sm-12">
-                              <p class="lead bold">Total Amount</p>
+                          <div class="col-md-6 col-sm-12" *ngIf="response">
+                              <p class="lead bold">Total Amount :{{response.totalactual}}</p>
                               <div class="table-responsive">
                                   <table class="table">
                                       <tbody>
                                           <tr>
-                                              <td class="sub1">Sub Total</td>
-                                              <td class="text-right sub">{{net}}</td>
+                                              <td class="sub1">Discount Total</td>
+                                              <td class="text-right sub">{{response.totaldiscount}}</td>
                                           </tr>
+                                          <tr>
+                                            <td class="sub1">Deal Total</td>
+                                            <td class="text-right sub">{{response.totaldeal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sub1">Total Save</td>
+                                            <td class="text-right sub">{{response.totalsave}}</td>
+                                        </tr>
                                         
                                       </tbody>
                                   </table>

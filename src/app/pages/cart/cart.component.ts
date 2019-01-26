@@ -50,6 +50,8 @@ export class CartComponent implements OnInit {
 
 
     let len = this.api.cart.length;
+    
+
     for (let i = 0; i < len; i++) {
       let res = this.api.cart[i];
       let id = res.prdid;
@@ -95,6 +97,8 @@ this.checkout();
       this.quantity=0;
       this.router.navigate(['/addbills'])
     })
+    this.api.bill.cid='';
+    this.api.bill.customerName='';
 
   }
   totalOfBill() {
