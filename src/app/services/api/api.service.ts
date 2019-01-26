@@ -239,4 +239,27 @@ username;
   updateSaleItem(id) {
     return this.afs.doc('saleitems/' + id).valueChanges();
   }
+  // ============================================= sale cart==================
+  saveToCart(cart) {
+    let data = JSON.stringify(cart);
+    localStorage.setItem('cart', data);
+  }
+
+  getSavedCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  clearSavedCart() {
+    localStorage.removeItem('cart');
+  }
+
+
+
+  addItemToCart(item) {
+    return this.cart.push(item);
+  }
+  removeItemFromCart(index) {
+    this.cart.splice(index, 1);
+  }
+
 }

@@ -26,6 +26,7 @@ import { DetailedbillComponent } from './pages/detailedbill/detailedbill.compone
 import { SaleoutComponent } from './pages/saleout/saleout.component';
 import { ViewsaleoutComponent } from './pages/viewsaleout/viewsaleout.component';
 import { SaleoutreportComponent } from './pages/saleoutreport/saleoutreport.component';
+import { SalecartComponent } from './pages/salecart/salecart.component';
 
 // import { TypeComponent } from './pages/type/type.component';
 
@@ -47,7 +48,8 @@ import { SaleoutreportComponent } from './pages/saleoutreport/saleoutreport.comp
     DetailedbillComponent,
     SaleoutComponent,
     ViewsaleoutComponent,
-    SaleoutreportComponent
+    SaleoutreportComponent,
+    SalecartComponent
     
     // TypeComponent
   ],
