@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class SaleoutComponent implements OnInit {
 prd;
+searchText='';
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
@@ -25,5 +26,7 @@ prd;
       console.log(res);
     })
   }
-
+  filterCondition(product) {
+    return product.name.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+  }
 }
