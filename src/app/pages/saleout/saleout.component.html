@@ -21,7 +21,7 @@
                     ft-shopping-cart font-large-2 text-white"></i>
                   </div>
                   <div class="p-2 ">
-                    <h6>Products</h6>
+                    <h6>{{name}}</h6>
                     <!-- <h5 class="text-bold-400 mb-0">28</h5> -->
                   </div>
                 </div>
@@ -63,7 +63,7 @@
           <tbody  *ngFor="let item of prd;let i=index">
               
             
-              <tr  *ngIf = "filterCondition(item)" class="items"  (click)="onItemClick(item)" >
+              <tr  *ngIf = "filterCondition(item)" class="items"  (click)="onclick(item)" >
                   <td class="text-center">{{i+1}}</td>
                   <td>{{item.name}}</td>
                   

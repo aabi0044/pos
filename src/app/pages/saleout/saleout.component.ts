@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class SaleoutComponent implements OnInit {
 prd;
+name;
+price;
 searchText='';
   constructor(private api:ApiService,private router:Router) { }
 
@@ -28,5 +30,9 @@ searchText='';
   }
   filterCondition(product) {
     return product.name.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+  }
+  onclick(prd){
+this.name=prd.name;
+this.price=prd.price;
   }
 }
