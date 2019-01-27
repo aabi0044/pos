@@ -49,5 +49,6 @@ this.prdid=prd.id;
     localStorage.setItem('salecart', JSON.stringify(this.api.salecart));
     // console.log(this.api.cart);
     console.log(this.api.getSavedSaleCart());
+    this.router.navigate(['/salecart'])
   }
 }
