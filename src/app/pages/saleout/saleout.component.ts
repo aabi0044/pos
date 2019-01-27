@@ -42,7 +42,8 @@ this.prdid=prd.id;
     let product={
      prdid:this.prdid,
      name:this.name,
-     price:this.price
+     price:this.price,
+     quantity:1
 
     }
     this.api.salecart.push(product);

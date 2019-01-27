@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from '../../services/api/api.service';
 @Component({
   selector: 'app-salecart',
   templateUrl: './salecart.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalecartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+  }
+  checkoutSaleCart(){
+    
   }
 
 }
