@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
+import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-salecart',
   templateUrl: './salecart.component.html',
@@ -8,7 +9,9 @@ import { ApiService } from '../../services/api/api.service';
 export class SalecartComponent implements OnInit {
 
   constructor(private api:ApiService) { }
-
+amad;
+actualquantity;
+leftquantity;
   ngOnInit() {
   }
   checkoutSaleCart(){
@@ -17,11 +20,11 @@ export class SalecartComponent implements OnInit {
   checkout() {
 
 
-    let len = this.api.cart.length;
+    let len = this.api.salecart.length;
     
 
     for (let i = 0; i < len; i++) {
-      let res = this.api.cart[i];
+      let res = this.api.salecart[i];
       let id = res.prdid;
 
       let quantity = res.quantity;
