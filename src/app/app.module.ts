@@ -77,6 +77,7 @@ import { SalecartComponent } from './pages/salecart/salecart.component';
         {path:'viewdaily',component:ViewdailyComponent},
         {path:'adddealer',component:TypeComponent},
         {path:'cart',component:CartComponent},
+        {path:'salecart',component:SalecartComponent},
         {path:'saleout',component:SaleoutComponent},
         {path:'viewsaleout',component:ViewsaleoutComponent},
      
