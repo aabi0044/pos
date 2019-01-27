@@ -1,3 +1,82 @@
-<p>
-  salecart works!
-</p>
+
+<div class="container">
+  <div class="row"> 
+    
+      <div class=" col-md-6 ">
+                 <!-- <ul class="list-group">
+                 
+                     <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+                    
+                 </ul>
+     -->
+   </div> <div class=" col-md-6 text-right button1" >
+   
+      <button class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout1()">CHECKOUT</button>
+
+             
+   
+   </div></div>
+</div>
+
+
+
+
+
+
+
+
+<!--Basic Table Starts-->
+<section id="simple-table">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-success">
+                
+
+                </div>
+              
+                <div class="col-md-6 text-left"> </div>
+           
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-head">
+                                <th>#</th>
+                                <th>Poduct Name</th>
+                                <th>Product Price</th>
+                              
+                                <th>Quantity</th>
+                           
+                                <th>Total</th>
+                          
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of api.cart ;let i=index" >
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{x.name}}</td>
+                                <td>{{x.price}}</td>
+                         
+                                <td>{{x.quantity}}</td>
+                           
+                                <td>{{x.totalActualPrice}}</td>
+                              
+                                <td>   <a (click)="remove(x._id)"  class="btn btn-raised gradient-flickr white">Remove</a></td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!--Basic Table Ends-->
+
+
