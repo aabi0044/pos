@@ -23,5 +23,11 @@ bills;
       console.log(res);
     })
   }
+  deleteBill(item){
+    let id=item.id;
+    this.api.removeSaleItem(id).then(res=>{
+      console.log("deleted");
+    })
+  }
 
 }
