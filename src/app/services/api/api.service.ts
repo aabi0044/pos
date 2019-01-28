@@ -24,6 +24,9 @@ export class ApiService {
     totalquantity:0,
     date: new Date()
   }
+  saleitembill={
+    salecart:[],
+  }
   amount: number;
   total: number;
 userid;
