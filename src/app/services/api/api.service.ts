@@ -119,7 +119,7 @@ username;
   /* ---------------ORDER--------------------------------------------------------------------------- */
 
   //CREATE
-  addBill(data) {
+    ffaddBill(data) {
     console.log(data);
     return this.afs.collection('bills').add(data);
   }

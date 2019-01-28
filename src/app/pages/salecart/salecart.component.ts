@@ -61,7 +61,7 @@ leftquantity;
     this.api.bill.cart = this.api.cart;
     console.log(this.api.bill);
 
-    this.api.addBill(this.api.bill).then(res => {
+    this.api.addSaleItem(this.api.bill).then(res => {
       console.log(res);
 this.checkout();
       this.clearCart();
