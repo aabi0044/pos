@@ -96,6 +96,7 @@
                               <tr class="table-head">
                                   <th>#</th>
                                   <th>Bill No</th>
+                                  <th>Name</th>
                                   <th>No Of Products</th>
                                   <th>Total Price</th>
                                   <th>Creation Date</th>
@@ -106,9 +107,10 @@
                               <tr  >
                                   <th scope="row" (click)="onClickBill(item)">{{i+1}}</th>
                                   <td (click)="onClickBill(item)">{{item.id}}</td>
-                                  <th (click)="onClickBill(item)"></th>
-                                  <td (click)="onClickBill(item)">{{item.totalSale}}</td>
-                                  <td (click)="onClickBill(item)">{{item.date | date  :"medium"}}</td>
+                                  <td (click)="onClickBill(item)">{{item.name}}</td>
+                                  <th (click)="onClickBill(item)">{{item.quantity}}</th>
+                                  <td (click)="onClickBill(item)">{{item.price}}</td>
+                                  <td (click)="onClickBill(item)">{{item.date}}</td>
                                   <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
                               </tr>
                             
