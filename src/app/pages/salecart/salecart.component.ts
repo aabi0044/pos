@@ -58,20 +58,19 @@ leftquantity;
 
 
     console.log(this.api.cart);
-    this.api.saleitembill.cart = this.api.salecart;
+    this.api.saleitembill.salecart = this.api.salecart;
     console.log(this.api.bill);
 
     this.api.addSaleItem(this.api.saleitembill).then(res => {
       console.log(res);
-this.checkout();
+
       this.clearCart();
       // this.net=0;
       // this.net1=0;
       // this.quantity=0;
       this.router.navigate(['/viewsaleout'])
     })
-    this.api.bill.cid='';
-    this.api.bill.customerName='';
+  
 
   }
   clearCart() {
