@@ -110,7 +110,7 @@
                                   <td (click)="onClickBill(item)">{{item.name}}</td>
                                   <th (click)="onClickBill(item)">{{item.quantity}}</th>
                                   <td (click)="onClickBill(item)">{{item.price}}</td>
-                                  <td (click)="onClickBill(item)">{{item.date}}</td>
+                                  <td (click)="onClickBill(item)">{{item.date.toDate()}}</td>
                                   <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
                               </tr>
                             
