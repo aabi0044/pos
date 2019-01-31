@@ -45,6 +45,7 @@ export class BilllistComponent implements OnInit {
     let e=0;
     let f=0;
     let g=0;
+    let d;
     console.log(this.dp);
       this.d= Date.parse(this.dp);
     
@@ -59,21 +60,23 @@ export class BilllistComponent implements OnInit {
         return { id, ...data };
       }))).subscribe(res => {
         this.daily= res;
-        let d = this.daily.filter((elem => {
+        d = this.daily.filter((elem => {
           console.log(elem.date);
-          let y = new Date(elem.date);
-         
+          let j = Date.parse(elem.date);
+          let y= new Date(j);
           let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
           console.log(u);
           return u.year == m.year && u.month == m.month && u.day == m.day;
-        console.log(res);
+        
       })
     //   .subscribe(res => {
     //    this.daily = res;
     // console.log(this.daily);
       
     //    })
+    
        );
+       console.log(d);
        if (d[0] == undefined) {
          console.log("okay");
          this.bills = null;
