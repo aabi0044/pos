@@ -61,9 +61,9 @@ export class BilllistComponent implements OnInit {
       }))).subscribe(res => {
         this.daily= res;
         d = this.daily.filter((elem => {
-          console.log(elem.date);
-          let j = Date.parse(elem.date);
-          let y= new Date(j);
+          console.log(elem.date.toDate());
+          let y = elem.date.toDate();
+          
           let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
           console.log(u);
           return u.year == m.year && u.month == m.month && u.day == m.day;
