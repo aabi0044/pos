@@ -52,17 +52,28 @@ export class BilllistComponent implements OnInit {
       let m = { year: l.getFullYear(), month: l.getMonth() + 1, day: l.getDate() };
       console.log(m);
       console.log(this.api.userid);
-      this.api.getspecificpersonbill(this.api.userid).subscribe(res => {
-       this.daily = res;
-    
-       let d = this.daily.filter((elem => {
-         console.log(elem.date);
-         let y = new Date(elem.date);
-        
-         let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
-         console.log(u);
-         return u.year == m.year && u.month == m.month && u.day == m.day;
-       }));
+      this.api.getspecificpersonbill(this.api.userid).pipe(map(list => list.map(item => {
+        let data = item.payload.doc.data();
+        let id = item.payload.doc.id;
+       
+        return { id, ...data };
+      }))).subscribe(res => {
+        this.daily= res;
+        let d = this.daily.filter((elem => {
+          console.log(elem.date);
+          let y = new Date(elem.date);
+         
+          let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+          console.log(u);
+          return u.year == m.year && u.month == m.month && u.day == m.day;
+        console.log(res);
+      })
+    //   .subscribe(res => {
+    //    this.daily = res;
+    // console.log(this.daily);
+      
+    //    })
+       );
        if (d[0] == undefined) {
          console.log("okay");
          this.bills = null;

@@ -108,7 +108,7 @@
                                   <td (click)="onClickBill(item)">{{item.id}}</td>
                                   <th (click)="onClickBill(item)">{{item.totalquantity}}</th>
                                   <td (click)="onClickBill(item)">{{item.totalactual}}</td>
-                                  <td (click)="onClickBill(item)">{{item.date| date:'fullDate'}}</td>
+                                  <td (click)="onClickBill(item)">{{item.date.seconds*1000 | date}}</td>
                                   <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
                               </tr>
                             
