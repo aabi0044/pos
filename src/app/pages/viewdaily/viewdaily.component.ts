@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{ApiService} from '../../services/api/api.service';
 
 @Component({
   selector: 'app-viewdaily',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewdailyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+  }
+  viewdailybills(){
+    
   }
 
 }
