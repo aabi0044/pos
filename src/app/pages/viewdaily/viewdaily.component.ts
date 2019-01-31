@@ -13,6 +13,7 @@ export class ViewdailyComponent implements OnInit {
   ngOnInit() {
   }
   viewdailybills(){
+    this.api
     
   }
 
