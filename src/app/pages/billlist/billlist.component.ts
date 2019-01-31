@@ -31,14 +31,16 @@ export class BilllistComponent implements OnInit {
  
   dp;
   d;
-  model: NgbDateStruct;
+  model;
   disabledModel: NgbDateStruct = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.viewOrder1();
   }
+ 
   datePicker(){
+ 
     this.set=0;
     this.set1=0;
     this.set2=0;
@@ -48,7 +50,7 @@ export class BilllistComponent implements OnInit {
     let d;
     console.log(this.dp);
       this.d= Date.parse(this.dp);
-    
+      this.model=Date.now();
       let l = new Date(this.d);
       let m = { year: l.getFullYear(), month: l.getMonth() + 1, day: l.getDate() };
       console.log(m);
@@ -173,6 +175,29 @@ export class BilllistComponent implements OnInit {
        this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
        console.log(this.model);
       //  this.today();
+      let d;
+      this.api.getspecificpersonbill(this.api.userid).pipe(map(list => list.map(item => {
+        let data = item.payload.doc.data();
+        let id = item.payload.doc.id;
+       
+        return { id, ...data };
+      }))).subscribe(res => {
+        this.daily= res;
+        d = this.daily.filter((elem => {
+          console.log(elem.date.toDate());
+          let y = elem.date.toDate();
+          
+          let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+          console.log(u);
+          return u.year == this.model.year && u.month == this.model.month && u.day == this.model.day;
+        
+      }));
+       console.log(d);
+
+      this.bills=d
+         console.log(this.set);
+       }
+     )
      }
     //  today() {
     //    this.set=0;
