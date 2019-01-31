@@ -236,25 +236,41 @@ export class BilllistComponent implements OnInit {
        let e=0;
     let f=0;
     let g=0;
-       this.api.getspecificpersonbill(this.api.userid).subscribe(res => {
-         this.daily = res;
-         console.log(this.model);
-         let d = this.daily.filter((elem => {
-           console.log(new Date(elem.date));
-           let y = new Date(elem.date);
+    let d;
+    console.log(this.year);
+    console.log(this.month);
+       this.api.getspecificpersonbill(this.api.userid).pipe(map(list => list.map(item => {
+        let data = item.payload.doc.data();
+        let id = item.payload.doc.id;
+       
+        return { id, ...data };
+      }))).subscribe(res => {
+        this.daily= res;
+        d = this.daily.filter((elem => {
+          console.log(elem.date.toDate());
+          let y = elem.date.toDate();
           
-           let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
-           console.log(u);
-   
-           return u.year == this.year && u.month == this.month ;
-         }));
+          let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+          console.log(u);
+          return u.year == this.year && u.month == this.month ;
+        
+      })
+    //   .subscribe(res => {
+    //    this.daily = res;
+    // console.log(this.daily);
+      
+    //    })
+    
+       );
+       console.log(d);
          if (d[0] == undefined) {
            console.log("okay");
-           this.bills = res;
+           this.bills = d;
            console.log(this.bills);
          }
          else {
            this.bills = d;
+           console.log(this.bills);
            console.log(this.bills);
            let l = this.bills.length;
            for (let i = 0; i < l; i++) {
