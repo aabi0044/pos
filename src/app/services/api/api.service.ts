@@ -182,7 +182,7 @@ username;
       .where('date', '>=', date)
       .where('date', '<=', date)).snapshotChanges();
   }
-  //-------------------------------------sales---------------------
+  //-------------------------------------sales daily sale profit---------------------
 
   addSale(data) {
     return this.afs.collection('sales').add(data);
