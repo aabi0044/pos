@@ -106,9 +106,9 @@
                               <tr  >
                                   <th scope="row" (click)="onClickBill(item)">{{i+1}}</th>
                                   <td (click)="onClickBill(item)">{{item.id}}</td>
-                                  <th (click)="onClickBill(item)"></th>
+                                  <th (click)="onClickBill(item)">{{item.totalquantity}}</th>
                                   <td (click)="onClickBill(item)">{{item.totalactual}}</td>
-                                  <td (click)="onClickBill(item)">{{item.date.toString()}}</td>
+                                  <td (click)="onClickBill(item)">{{item.date| date:'fullDate'}}</td>
                                   <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
                               </tr>
                             
