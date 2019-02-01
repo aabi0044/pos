@@ -33,7 +33,6 @@ length;
     this.api.deleteSale(id).then(res=>{
       console.log("deleted");
     })
-
   }
 
 }
