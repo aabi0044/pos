@@ -95,21 +95,21 @@
                           <thead>
                               <tr class="table-head">
                                   <th>#</th>
-                                  <th>Bill No</th>
-                                  <th>No Of Products</th>
-                                  <th>Total Price</th>
-                                  <th>Creation Date</th>
+                                  <th>Date</th>
+                                  <th>Sale</th>
+                                  <th>Profit</th>
+                               
                                   <th></th>
                               </tr>
                           </thead>
-                          <tbody *ngFor="let item of bills;let i=index">
+                          <tbody *ngFor="let item of prd;let i=index">
                               <tr  >
                                   <th scope="row" (click)="onClickBill(item)">{{i+1}}</th>
-                                  <td (click)="onClickBill(item)">{{item.id}}</td>
-                                  <th (click)="onClickBill(item)">{{item.totalquantity}}</th>
-                                  <td (click)="onClickBill(item)">{{item.totalactual}}</td>
-                                  <td (click)="onClickBill(item)">{{item.date.seconds*1000 | date}}</td>
-                                  <td> <button class="btn-danger" (click)="deleteBill(item)"> Delete </button></td>
+                                  <td (click)="onClickBill(item)">{{item.date | date}}</td>
+                                  <th (click)="onClickBill(item)">{{item.sale}}</th>
+                                  <td (click)="onClickBill(item)">{{item.profit}}</td>
+                               
+                                  <td> <button class="btn-danger" (click)="deleteSale(item)"> Delete </button></td>
                               </tr>
                             
                           </tbody>
