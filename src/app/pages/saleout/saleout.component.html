@@ -56,7 +56,7 @@
               <tr class="table-head">
                   <th class="text-center">#</th>
                   <th> <b>Name</b></th>
-                 
+                 <th><b>Left Quantity</b></th>
                   <th class="text-right"> <b>Price</b></th>
             
               </tr>
@@ -67,7 +67,8 @@
               <tr  *ngIf = "filterCondition(item)" class="items"  (click)="onclick(item)" >
                   <td class="text-center">{{i+1}}</td>
                   <td>{{item.name}}</td>
-                  
+                  <td><strong style="color:darkorange !important;
+                  text-align: center !important">{{item.quantity}}</strong></td>
                   <td class="text-right">{{item.price}}</td>
                   
               </tr>

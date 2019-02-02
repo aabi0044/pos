@@ -149,7 +149,7 @@ warrning;
     }))).subscribe(res => {
       this.check=res;
       console.log(res);
-      let f= this.check.filter(elem=> elem.quantity<16);
+      let f= this.check.filter(elem=> elem.quantity<=1);
       console.log(f);
       this.filter=f;
       if(this.filter!=[]){
