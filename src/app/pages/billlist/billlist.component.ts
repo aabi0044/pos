@@ -32,11 +32,14 @@ export class BilllistComponent implements OnInit {
   dp;
   d;
   model;
+  fetchuser;
+  fetchusername;
   disabledModel: NgbDateStruct = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.viewOrder1();
+    this.getuser();
   }
  
   datePicker(){
@@ -130,6 +133,12 @@ export class BilllistComponent implements OnInit {
         this.bills= res;
         console.log(res);
       })
+     }
+     getuser(){
+       this.api.getUser(this.api.userid).subscribe(res=>{
+this.fetchuser=res;
+this.fetchusername=this.fetchuser.name;
+       })
      }
      viewOrder() {
    

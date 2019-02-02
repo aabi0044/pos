@@ -78,7 +78,7 @@ username;
   }
   //Read All
   getProducts() {
-    return this.afs.collection('products',ref=>ref.orderBy('name')).snapshotChanges();
+    return this.afs.collection('products',ref=>ref.orderBy('quantity','desc')).snapshotChanges();
   }
   //UPDATE 
     updateProduct(uid, data) {
