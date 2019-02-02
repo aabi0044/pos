@@ -32,6 +32,30 @@
              color:#009688 !important"> Add Manually</h4><hr>
           </div>
       </div>
+      <div class="row">
+      
+        <div class="col-md-6">
+                <div class="form-group"><i class="title">  <strong> Sale</strong></i>
+           
+                    <input type="number" name="sale"  [(ngModel)]="sale" placeholder="Add today Sale" class="form-control" id="exampleFormControlInput1" >
+                    <i class="title"><b>Profit</b> </i>
+                    <input class="form-control"name="profit"  [(ngModel)]="profit" placeholder="Add today Profit" type="number">
+                   </div>
+    </div>
+<div class="col-md-6">
+    <input type="date" class="form-group"  [(ngModel)]="date">
+  </div>
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6 text-right">
+          <title> Chose Date:</title>
+            <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="addSale()">Add </button>
+
+      </div>
+  </div>
         </div>
          <br>
          <br>
