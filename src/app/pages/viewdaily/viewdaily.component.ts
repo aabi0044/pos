@@ -16,6 +16,8 @@ month;
 val;
 val2;
 sales;
+totalsale;
+totalprofit;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -75,39 +77,36 @@ sales;
     console.log(d);
       if (d[0] == undefined) {
         console.log("okay");
-        this.bills = d;
-        console.log(this.bills);
+        this.prd = d;
+        console.log(this.prd);
       }
       else {
-        this.bills = d;
-        console.log(this.bills);
-        console.log(this.bills);
-        let l = this.bills.length;
+        this.prd = d;
+        console.log(this.prd);
+        console.log(this.prd);
+        let l = this.prd.length;
         for (let i = 0; i < l; i++) {
-          let x = this.bills[i].totalActual;
+          let x = this.prd[i].profit;
           console.log(x);
           e = x + e;
         }
         for (let i = 0; i < l; i++) {
-          let x = this.bills[i].totalSale;
+          let x = this.prd[i].sale;
           console.log(x);
           f = x + f;
         }
-        for (let i = 0; i < l; i++) {
-          let x = this.bills[i].totalSave;
-          console.log(x);
-          g = x + g;
-        }
-        // this.set = e;
+      
+   this.totalsale=f;
+   this.totalprofit=e;
+   console.log(this.totalprofit);
+   console.log(this.totalsale);
         // this.set1 = g;
         // this.set2 = f;
         // console.log(this.set);
       }
       
     })
-    // this.daysInMonth(this.month, this.year);
-
-    // this.viewOrder();
+    
   }
   months(event:any){
     this.val=event.target.value;
