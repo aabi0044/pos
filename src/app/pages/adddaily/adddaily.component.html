@@ -26,13 +26,19 @@
         <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="addSale()">Add </button>
       </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="!showhide">
           <div class="col-md-12">
              <hr> <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
-             color:#009688 !important"> Add Manually</h4><hr>
+             color:#009688 !important" (click)="manual()"> Add Manually</h4><hr>
           </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="showhide">
+            <div class="col-md-12">
+               <hr> <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+               color:#009688 !important" (click)="manual()"> Add Directly</h4><hr>
+            </div>
+        </div>
+      <div class="row" *ngIf="showhide">
       
         <div class="col-md-6">
                 <div class="form-group"><i class="title">  <strong> Sale</strong></i>
@@ -43,16 +49,17 @@
                    </div>
     </div>
 <div class="col-md-6">
+        <label> Chose Date:</label>
     <input type="date" class="form-group"  [(ngModel)]="date">
   </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="showhide">
       <div class="col-md-6">
 
       </div>
       <div class="col-md-6 text-right">
-          <label> Chose Date:</label>
-            <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="addSale()">Add </button>
+      
+            <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main"  (click)="addSale()">Add </button>
 
       </div>
   </div>

@@ -22,7 +22,7 @@ searchText='';
 prd;
 id;
 length;
-
+showhide:boolean=false;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -139,5 +139,8 @@ let id=item.id;
   // filterCondition(product){
   //   return product.profit.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
   // }
+  manual(){
+this.showhide=true;
+  }
 
 }
