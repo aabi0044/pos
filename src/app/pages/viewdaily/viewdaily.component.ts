@@ -18,6 +18,7 @@ val2;
 sales;
 totalsale;
 totalprofit;
+showreport:boolean=false;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
