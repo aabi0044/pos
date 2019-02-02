@@ -58,6 +58,7 @@ totalprofit;
      return { id, ...data };
    }))).subscribe(res => {
      this.sales= res;
+     console.log(this.sales);
      d = this.sales.filter((elem => {
        console.log(elem.date.toDate());
        let y = elem.date.toDate();
