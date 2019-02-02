@@ -17,13 +17,13 @@
     
           <div class="row" *ngIf="!showhide">
             <div class="col-md-6">
-                <button class="btn btn-raised mr-1  shadow-z-2 btn-danger main"  (click)="updateSale()">Update </button>
+                <button class="btn btn-raised mr-1  shadow-z-2 btn-danger main" *ngIf="showupdate"  (click)="updateSale()">Update </button>
     
             </div>
             <div class="col-md-3">
         </div>
     <div class="col-md-3">
-        <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main"  *ngIf="manualdate && sale && profit" (click)="addSale()">Add </button>
+        <button type="button" class="btn btn-raised mr-1 shadow-z-2 btn-info main"  *ngIf="sale && profit" (click)="addSale()">Add </button>
       </div>
       </div>
       <div class="row" *ngIf="!showhide">
