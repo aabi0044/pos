@@ -196,6 +196,7 @@ this.total=l;
 this.showreport=true;
 
  let date= new Date(this.today);
+ console.log(date);
  let  o= { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
  console.log(o);
  let d;
