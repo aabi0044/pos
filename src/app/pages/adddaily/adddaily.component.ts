@@ -142,5 +142,8 @@ let id=item.id;
   manual(){
 this.showhide=true;
   }
+  direct(){
+    this.showhide=false;
+  }
 
 }
