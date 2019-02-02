@@ -20,6 +20,7 @@ totalsale;
 totalprofit;
 showreport:boolean=false;
 total;
+dp;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -47,9 +48,10 @@ total;
     // this.set=0;
     // this.set1=0;
     // this.set2=0;
-this.showreport=true;
     let e=0;
- let f=0;
+    let f=0;
+this.showreport=true;
+ 
  let d;
  console.log(this.year);
  console.log(this.month);
@@ -82,6 +84,78 @@ this.showreport=true;
         console.log("okay");
         this.prd = d;
         console.log(this.prd);
+        this.showreport=false;
+      }
+      else {
+        this.prd = d;
+        console.log(this.prd);
+        console.log(this.prd);
+        let l = this.prd.length;
+this.total=l;
+        for (let i = 0; i < l; i++) {
+          let x = this.prd[i].profit;
+          console.log(x);
+          e = x + e;
+        }
+        for (let i = 0; i < l; i++) {
+          let x = this.prd[i].sale;
+          console.log(x);
+          f = x + f;
+        }
+      
+   this.totalsale=f;
+   this.totalprofit=e;
+   console.log(this.totalprofit);
+   console.log(this.totalsale);
+        // this.set1 = g;
+        // this.set2 = f;
+        // console.log(this.set);
+      }
+      
+    })
+    
+  }
+  datePicker() {
+    // this.set=0;
+    // this.set1=0;
+    // this.set2=0;
+    let e=0;
+    let f=0;
+this.showreport=true;
+ let date= new Date(this.dp);
+ let  o= { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+ console.log(o);
+ let d;
+    this.api.getSales().pipe(map(list => list.map(item => {
+     let data = item.payload.doc.data();
+     let id = item.payload.doc.id;
+    
+     return { id, ...data };
+   }))).subscribe(res => {
+     this.sales= res;
+     console.log(this.sales);
+     d = this.sales.filter((elem => {
+       console.log( new Date(elem.date));
+       let y = new Date(elem.date);
+       
+       let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+       console.log(u);
+       return u.year == o.year && u.month == o.month && u.day==o.day ;
+     
+   })
+ //   .subscribe(res => {
+ //    this.daily = res;
+ // console.log(this.daily);
+   
+ //    })
+ 
+    );
+    console.log(d);
+      if (d[0] == undefined) {
+        console.log("okay");
+        this.prd = d;
+        console.log(this.prd);
+        this.showreport=false;
       }
       else {
         this.prd = d;
