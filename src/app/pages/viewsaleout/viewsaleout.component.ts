@@ -79,7 +79,7 @@ val2;
     }
     console.log(this.month);
   }
-  selectChangeHandler1(event: any) {
+  years(event: any) {
     this.val2 = event.target.value;
     console.log(this.val2);
     if (this.val2 == '2019') {
