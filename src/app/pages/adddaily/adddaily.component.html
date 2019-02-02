@@ -8,14 +8,14 @@
       <div class="row"> 
         
         <div class="col-md-6">
-          <div class="form-group"><i class="title">  <strong> Sale</strong></i>
+          <div class="form-group" *ngIf="!showhide"><i class="title">  <strong> Sale</strong></i>
            
            <input type="number" name="sale"  [(ngModel)]="sale" placeholder="Add today Sale" class="form-control" id="exampleFormControlInput1" >
            <i class="title"><b>Profit</b> </i>
            <input class="form-control"name="profit"  [(ngModel)]="profit" placeholder="Add today Profit" type="number">
           </div>
     
-          <div class="row">
+          <div class="row" *ngIf="!showhide">
             <div class="col-md-6">
                 <button class="btn btn-raised mr-1  shadow-z-2 btn-danger main"  (click)="updateSale()">Update </button>
     
