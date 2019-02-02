@@ -194,7 +194,7 @@ username;
   }
   //Read All
   getSales() {
-    return this.afs.collection('sales').snapshotChanges();
+    return this.afs.collection('sales', ref=>ref.orderBy('date')).snapshotChanges();
   }
   //UPDATE 
   updateSale(uid, data) {
