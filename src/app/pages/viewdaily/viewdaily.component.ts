@@ -60,8 +60,8 @@ totalprofit;
      this.sales= res;
      console.log(this.sales);
      d = this.sales.filter((elem => {
-       console.log(elem.date);
-       let y = elem.date;
+       console.log( new Date(elem.date));
+       let y = new Date(elem.date);
        
        let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
        console.log(u);
