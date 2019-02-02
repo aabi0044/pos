@@ -23,6 +23,8 @@ prd;
 id;
 length;
 showhide:boolean=false;
+manualdate:Date;
+showupdate:boolean=false;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -31,7 +33,6 @@ showhide:boolean=false;
     
   }
   addSale() {
-
     let p ={
       sale: this.sale,
       profit:this.profit,
@@ -39,15 +40,22 @@ showhide:boolean=false;
     }
 console.log(p);
     this.daily=p;
-    // let date=this.prd[this.length-1].date
-    // console.log(this.prd[this.length-1].date);
-    // if(date==this.date){
-    
-    //   console.log('object');
-    // }
  this.api.addSale(this.daily).then(res => {
   console.log('product Added');
+  this.resetForm();
 
+})
+   }
+   addManualSale() {
+    let p ={
+      sale: this.sale,
+      profit:this.profit,
+      date:this.manualdate
+    }
+console.log(p);
+    this.daily=p;
+ this.api.addSale(this.daily).then(res => {
+  console.log('product Added');
   this.resetForm();
 
 })
@@ -80,6 +88,7 @@ console.log(p);
     this.profit=prd.profit;
    
     this.id = prd.id;
+    this.showupdate=true;
     // this.product=Object.assign({},prd); 
   }
   updateSale(){
@@ -87,11 +96,7 @@ console.log(p);
   console.log(this.id);
     let d = {
       sale:this.sale,
-      profit:this.profit
-     
-     
-      
-     
+      profit:this.profit 
     }
     this.api.updateSale(this.id,d).then(res=>{
       console.log('Product updated')
@@ -103,7 +108,6 @@ let id=item.id;
     this.api.deleteSale(id).then(res=>{
       console.log(id);
       console.log('product deletes');
-    
     })
     this.showSales();
     this.resetForm();
@@ -116,29 +120,10 @@ let id=item.id;
     }))).subscribe(res => {
       this.prd = res;
       console.log(this.prd[0].sale, this.prd[0].profit);
-      
-  //  let y = parseInt(res[i].sale);
-
       let len = res.length;
-
-// let sale= res[0].profit;
-      // for (var i = 0; i < len; i++) {
-
-      //   let y = parseInt(res[i].sale);
-      //    let total = (y + total);
-      //   console.log(y);
-  
-  
-  
-  
-      // }
     })
-
-   
   }
-  // filterCondition(product){
-  //   return product.profit.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
-  // }
+ 
   manual(){
 this.showhide=true;
   }
