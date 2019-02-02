@@ -35,9 +35,9 @@ val2;
   }
  
 
-  filterCondition(product) {
-    return product._id.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
-  }
+  // filterCondition(product) {
+  //   return product._id.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+  // }
   months(event:any){
     this.val=event.target.value;
     console.log(this.val);
