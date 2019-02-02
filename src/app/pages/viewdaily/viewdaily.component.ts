@@ -19,6 +19,7 @@ sales;
 totalsale;
 totalprofit;
 showreport:boolean=false;
+total;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -87,6 +88,7 @@ this.showreport=true;
         console.log(this.prd);
         console.log(this.prd);
         let l = this.prd.length;
+this.total=l;
         for (let i = 0; i < l; i++) {
           let x = this.prd[i].profit;
           console.log(x);
