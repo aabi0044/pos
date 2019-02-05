@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
     date: new Date
   }
   manualbilldate;
+  getdate;
   hidecheckout:boolean=true;
   constructor(private api: ApiService, private router: Router) { }
 
@@ -48,9 +49,7 @@ export class CartComponent implements OnInit {
       this.quantity=0;
      }
   }
-check(){
 
-}
   remove(id) {
     let index = this.api.cart.findIndex(element => element.id === id);
     this.api.cart.splice(index, 1);
@@ -125,6 +124,9 @@ this.checkout();
     this.hidecheckout=true;
   }
   ManualDateCeckout() {
+    var timestamp_end = Date.parse(this.getdate)
+    this.manualbilldate=timestamp_end;
+    console.log(this.manualbilldate);
 this.manualdatebill.cid=this.api.bill.cid;
 this.manualdatebill.customerName=this.api.bill.customerName;
 this.manualdatebill.date=this.manualbilldate;
@@ -192,6 +194,7 @@ this.manualdatebill.totaldeal=this.dealprice;
 
     saveBill = this.net- this.net1;
     this.api.bill.totalsave=saveBill;
+    this.manualdatebill.totalsave=saveBill;
     // this.bill.totalActual = totalSale;
     // this.bill.totalSale = totalBill;
     // this.bill.totalSave = saveBill;

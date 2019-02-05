@@ -4,8 +4,8 @@
       <div class=" col-md-6 ">
           <button *ngIf="hidecheckout" class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout1()">CHECKOUT</button>
 
-          <input  *ngIf="!hidecheckout"type="date" [(ngModel)]="manualbilldate" name="manualbilldate" >
-          <button *ngIf="!hidecheckout&&manualbilldate" class="btn btn-success white checkout" (click)="ManualDateCeckout()">Proceed</button>
+          <input  *ngIf="!hidecheckout"type="date" [(ngModel)]="getdate" name="getdate" >
+          <button *ngIf="!hidecheckout&&getdate" class="btn btn-success white checkout" (click)="ManualDateCeckout()">Proceed</button>
                  <!-- <ul class="list-group">
                  
                      <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
