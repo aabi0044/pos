@@ -119,6 +119,9 @@ this.checkout();
     this.hidecheckout=false;
 
   }
+  addauto(){
+    this.hidecheckout=true;
+  }
   ManualDateCeckout() {
 
 this.manualdatebill.date=this.manualbilldate;
@@ -154,12 +157,14 @@ this.checkout();
       totalBill = (l + totalBill);
       this.net = totalBill;
       this.api.bill.totalactual=this.net;
+      this.manualdatebill.totalactual=this.net;
     }
     for (let j = 0; j < len; j++) {
       let m = parseInt(x[j].totalDiscountPrice);
       totalSale = (m + totalSale);
       this.net1 = totalSale;
       this.api.bill.totaldiscount=this.net1;
+      this.manualdatebill.totaldiscount=this.net1;
     }
     for (let j = 0; j < len; j++) {
       let m = parseInt(x[j].quantity);
