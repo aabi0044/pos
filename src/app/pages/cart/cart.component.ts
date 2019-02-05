@@ -21,6 +21,20 @@ export class CartComponent implements OnInit {
   leftquantity = 0;
   amadName;
   amadPrice;
+  manualdatebill = {
+    cid:'',
+    cart: [],
+    customerName:'',
+    address: '',
+    totalactual:0,
+    totaldiscount: 0,
+    totalsave: 0,
+    totaldeal:0,
+    totalquantity:0,
+    date: new Date
+  }
+  manualbilldate:Date;
+  hidecheckout:boolean=true;
   constructor(private api: ApiService, private router: Router) { }
 
 
@@ -89,6 +103,30 @@ export class CartComponent implements OnInit {
     console.log(this.api.bill);
 
     this.api.addBill(this.api.bill).then(res => {
+      console.log(res);
+this.checkout();
+      this.clearCart();
+      this.net=0;
+      this.net1=0;
+      this.quantity=0;
+      this.router.navigate(['/addbills'])
+    })
+    this.api.bill.cid='';
+    this.api.bill.customerName='';
+
+  }
+  manualdate1(){
+    this.hidecheckout=false;
+
+  }
+  ManualDateCeckout() {
+
+this.manualdatebill.date=this.manualbilldate;
+    console.log(this.api.cart);
+    this.manualdatebill.cart = this.api.cart;
+    console.log(this.api.bill);
+
+    this.api.addBill(this.manualdatebill).then(res => {
       console.log(res);
 this.checkout();
       this.clearCart();

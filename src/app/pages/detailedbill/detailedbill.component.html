@@ -33,7 +33,7 @@
                         
                       </div>
                       <div class="col-7 text-right" *ngIf="response">
-                          <p><span class="text-muted">Creation date:</span> {{response.date| date  :"medium"}}</p>
+                          <p><span class="text-muted">Creation date:</span> {{response.date.seconds*1000 |date}}</p>
                           <p class="bill"><span class="text-muted ">Bill No:</span> {{uid}}</p>
                          
                       </div>

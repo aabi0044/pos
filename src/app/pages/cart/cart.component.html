@@ -2,7 +2,10 @@
 <div class="container">
   <div class="row"> 
       <div class=" col-md-6 ">
-          <button class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout1()">CHECKOUT</button>
+          <button *ngIf="hidecheckout" class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout1()">CHECKOUT</button>
+
+          <input  *ngIf="!hidecheckout"type="date" [(ngModel)]="manualbilldate" name="manualbilldate" >
+          <button *ngIf="!hidecheckout&&manualbilldate" class="btn btn-success white checkout" (click)="ManualDateCeckout()">CHECKOUT</button>
                  <!-- <ul class="list-group">
                  
                      <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
@@ -35,11 +38,14 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title-wrap bar-success">
+                
+                        <button class="btn btn-raised gradient-blue-grey-blue white datebutton" *ngIf="hidecheckout" (click)="manualdate1()">Add Date</button>
+                        <button class="btn btn-success white datebutton" *ngIf="!hidecheckout" (click)="manualdate1()">Add Auto</button>
                     <h4 class="card-title">Current Cart For : <b><i>{{api.bill.customerName}}</i></b></h4>
-
+  
                 </div>
               
-                <div class="col-md-6 text-left"> </div>
+                <div class="col-md-6 text-left">  </div>
            
             </div>
             <div class="card-body">

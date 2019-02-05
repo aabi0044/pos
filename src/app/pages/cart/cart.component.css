@@ -12,3 +12,9 @@
 .table-head{
     background: #69F0AE;
 }
+.datebutton{
+    width: 100px !important;
+    height: 45px !important;
+    text-align: center !important;
+    align-content: right !important;
+}
