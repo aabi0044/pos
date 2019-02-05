@@ -14,7 +14,7 @@ export class AddproductsComponent implements OnInit {
 searchText = '';
   name: string;
   price:number;
-  quantity:number;
+  quantity=0;
   date= Date.now();
   private product:Product;
 products;

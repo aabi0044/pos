@@ -72,6 +72,7 @@ update(){
   }
   this.api.updateUser(this.userid,data).then(res=>{
     console.log("userUpdated");
+    this.show=false;
   })
 }
 }

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="row">
    <div class="col-md-3">
       <h2><ul>Add New Dealer</ul> </h2>
@@ -13,7 +14,7 @@
    </div>
    <div class="row">
      <div class="col-md-6 text-left" >
-      <button type="button"  *ngIf="show" class="btn btn-raised mr-1 shadow-z-2 btn-info main" (click)="update()">Create User</button>
+      <button type="button"  *ngIf="show" class="btn btn-raised mr-1 shadow-z-2 btn-success main" (click)="update()">Update User</button>
 
      </div>
     <div class="col-md-6 text-right">
@@ -26,12 +27,12 @@
   <div class="container">
       <div class="row">
           <div class="col-xl-3 col-lg-12" *ngFor="let item of user" >
-      <div class="card mb-4"  (click)="onClick(item)">
+      <div class="card mb-4" >
           
           <div class="card-body">
             <div class="card-block" >
               <div class="align-self-center halfway-fab text-center">
-                <a class="info" >{{item.name}}</a>
+                <a class="info"  (click)="onClick(item)">{{item.name}}</a>
                     
              
               </div>
@@ -43,7 +44,7 @@
                 <div class="col-12">
                   <ul class="no-list-style pl-0 text-center">
                     <li class="mb-1">
-                      <span class="text-bold-500 primary"><a><i class="icon-price font-small-3"></i> Number:</a></span>
+                      <span class="text-bold-500 primary"  (click)="onClick(item)"><a><i class="icon-price font-small-3"></i> Number:</a></span>
                       <span class="display-block overflow-hidden">{{item.number}}</span>
                     </li>
                     
