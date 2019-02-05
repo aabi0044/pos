@@ -14,6 +14,8 @@ name;
 number;
 user;
 noofbills;
+userid;
+show:boolean=false;
     constructor(private api:ApiService,private router :Router) { }
   
     ngOnInit() {
@@ -55,5 +57,21 @@ onClick(item){
   this.api.bill.customerName=name;
   this.router.navigate(['addbills/'+id])
   
+}
+updateuser(user){
+console.log(user.id);
+this.userid=user.id;
+this.name=user.name;
+this.number=user.number;
+this.show=true;
+}
+update(){
+  let data={
+    name:this.name,
+    number:this.number
+  }
+  this.api.updateUser(this.userid,data).then(res=>{
+    console.log("userUpdated");
+  })
 }
 }

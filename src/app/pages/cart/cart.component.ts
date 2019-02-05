@@ -124,7 +124,7 @@ this.checkout();
     this.hidecheckout=true;
   }
   ManualDateCeckout() {
-    var timestamp_end = Date.parse(this.getdate)
+    var timestamp_end = new Date(this.getdate)
     this.manualbilldate=timestamp_end;
     console.log(this.manualbilldate);
 this.manualdatebill.cid=this.api.bill.cid;
