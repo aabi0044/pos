@@ -1,6 +1,6 @@
 
 <!--Striped rows Light Starts-->
-<section id="striped-light">
+<section class="container" >
   <div class="row">
       <div class="col-sm-12">
           <div class="card">
@@ -59,15 +59,15 @@
                                     
             
                       </div>
-                      <div class="col-md-1"> <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" (click)="searchBills()">Search</a></div>
+                      <div class="col-3"> <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" (click)="searchBills()">Search</a></div>
                       <div class="col-1"> </div>
-                      <div class="col-3"> <input type="date"  [(ngModel)]="dp" class="form-control"></div>
+                      <div class="col-3"> <input type="date"  [(ngModel)]="dp" class="form-control">
                           
                          
                               <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
                             <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
     
-                            
+                        </div>  
                       
                 </div>
                 <div class="row">
