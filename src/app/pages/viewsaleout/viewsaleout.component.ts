@@ -16,6 +16,7 @@ val:any;
 val2:any;
 sales:any;
 today= Date.now();
+dp:any;
   ngOnInit() {
     this.getsaleoutbill();
   }
@@ -63,6 +64,112 @@ today= Date.now();
        let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
        console.log(u);
        return u.year == o.year && u.month == o.month && u.day==o.day ;
+     
+   })
+ //   .subscribe(res => {
+ //    this.daily = res;
+ // console.log(this.daily);
+   
+ //    })
+ 
+    );
+    console.log(d);
+      if (d[0] == undefined) {
+        console.log("okay");
+        this.bills = d;
+      
+      }
+      else {
+      this.bills=d;
+        }
+      
+
+      
+      
+    })
+    
+  }
+  ManualDate() {
+    // this.set=0;
+    // this.set1=0;
+    // this.set2=0;
+    let e=0;
+    let f=0;
+
+
+ let date= new Date(this.dp);
+ console.log(date);
+ let  o= { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+ console.log(o);
+ let d;
+    this.api.readSaleItems().pipe(map(list => list.map(item => {
+     let data = item.payload.doc.data();
+     let id = item.payload.doc.id;
+    
+     return { id, ...data };
+   }))).subscribe(res => {
+     this.sales= res;
+     console.log(this.sales);
+     d = this.sales.filter((elem => {
+       console.log( elem.date.toDate());
+       let y = elem.date.toDate();
+       
+       let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+       console.log(u);
+       return u.year == o.year && u.month == o.month && u.day==o.day ;
+     
+   })
+ //   .subscribe(res => {
+ //    this.daily = res;
+ // console.log(this.daily);
+   
+ //    })
+ 
+    );
+    console.log(d);
+      if (d[0] == undefined) {
+        console.log("okay");
+        this.bills = d;
+      
+      }
+      else {
+      this.bills=d;
+        }
+      
+
+      
+      
+    })
+    
+  }
+  ManualMonthAndYear() {
+    // this.set=0;
+    // this.set1=0;
+    // this.set2=0;
+    let e=0;
+    let f=0;
+
+
+//  let date= new Date(this.dp);
+//  console.log(date);
+//  let  o= { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+//  console.log(o);
+ let d;
+    this.api.readSaleItems().pipe(map(list => list.map(item => {
+     let data = item.payload.doc.data();
+     let id = item.payload.doc.id;
+    
+     return { id, ...data };
+   }))).subscribe(res => {
+     this.sales= res;
+     console.log(this.sales);
+     d = this.sales.filter((elem => {
+       console.log( elem.date.toDate());
+       let y = elem.date.toDate();
+       
+       let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+       console.log(u);
+       return u.year == this.year && u.month == this.month  ;
      
    })
  //   .subscribe(res => {
