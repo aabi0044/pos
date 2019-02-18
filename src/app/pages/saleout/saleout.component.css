@@ -5,3 +5,6 @@
 .main{
     margin-top: -3px !important;
 }
+.container{
+    max-width: 100% !important;
+}

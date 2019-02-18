@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SalecartComponent implements OnInit {
 
-  constructor(private api:ApiService,private router:Router) { }
+  constructor(public api:ApiService,private router:Router) { }
 amad;
 actualquantity;
 leftquantity;

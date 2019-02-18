@@ -7,19 +7,19 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pos';
-  showHead: boolean = false;
+  // title = 'pos';
+  // showHead='';
   constructor(private router: Router) {
-    // on route change to '/login', set the variable showHead to false
-      router.events.forEach((event) => {
-        if (event instanceof NavigationStart) {
-          if (event['url'] == '/login') {
-            this.showHead = false;
-          } else {
-            // console.log("NU")
-            this.showHead = true;
-          }
-        }
-      });
+    // // on route change to '/login', set the variable showHead to false
+    //   router.events.forEach((event) => {
+    //     if (event instanceof NavigationStart) {
+    //       if (event['url'] == '/login') {
+    //         this.showHead = 'false';
+    //       } else {
+    //         // console.log("NU")
+    //         this.showHead = 'true';
+    //       }
+    //     }
+    //   });
     }
 }

@@ -25,7 +25,7 @@ length;
 showhide:boolean=false;
 manualdate:Date;
 showupdate:boolean=false;
-  constructor(private api:ApiService) { }
+  constructor(public api:ApiService) { }
 
   ngOnInit() {
     this.showSales();

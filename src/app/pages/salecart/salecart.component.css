@@ -3,3 +3,6 @@
     width: 200px !important;
     height:70px !important;
 }
+.container{
+    max-width: 100% !important;
+}

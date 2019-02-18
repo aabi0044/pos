@@ -16,7 +16,7 @@ user;
 noofbills;
 userid;
 show:boolean=false;
-    constructor(private api:ApiService,private router :Router) { }
+    constructor(public api:ApiService,private router :Router) { }
   
     ngOnInit() {
   this.getUsers();

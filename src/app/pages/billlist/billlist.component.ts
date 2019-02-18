@@ -35,7 +35,7 @@ export class BilllistComponent implements OnInit {
   fetchuser;
   fetchusername;
   disabledModel: NgbDateStruct = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(public api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.viewOrder1();

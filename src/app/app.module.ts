@@ -28,7 +28,7 @@ import { SaleoutComponent } from './pages/saleout/saleout.component';
 import { ViewsaleoutComponent } from './pages/viewsaleout/viewsaleout.component';
 import { SaleoutreportComponent } from './pages/saleoutreport/saleoutreport.component';
 import { SalecartComponent } from './pages/salecart/salecart.component';
-
+import { NgxElectronModule } from 'ngx-electron';
 // import { TypeComponent } from './pages/type/type.component';
 
 @NgModule({
@@ -56,6 +56,7 @@ import { SalecartComponent } from './pages/salecart/salecart.component';
   ],
   imports: [
     BrowserModule,
+    NgxElectronModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.fireConfig),
     AngularFirestoreModule,

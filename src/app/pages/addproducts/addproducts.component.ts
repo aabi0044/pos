@@ -27,7 +27,7 @@ check;
 filter;
 warrning;
 
-  constructor(private api: ApiService) {
+  constructor(public api: ApiService) {
     this.daysInMonth(12, 2018);
    }
 

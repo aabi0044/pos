@@ -22,7 +22,7 @@ showreport:boolean=false;
 total;
 dp;
 today= Date.now();
-  constructor(private api:ApiService) { }
+  constructor(public api:ApiService) { }
 
   ngOnInit() {
     this.showSales();

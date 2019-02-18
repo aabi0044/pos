@@ -8,12 +8,12 @@ import { map } from 'rxjs/operators';
 })
 export class ViewsaleoutComponent implements OnInit {
 
-  constructor(private api:ApiService) { }
-bills;
-month;
-year;
-val;
-val2;
+  constructor(public api:ApiService) { }
+bills:any;
+month:any;
+year:any;
+val:any;
+val2:any;
   ngOnInit() {
     this.getsaleoutbill();
   }

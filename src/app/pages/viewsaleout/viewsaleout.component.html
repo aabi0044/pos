@@ -1,5 +1,6 @@
 
 <!--Striped rows Light Starts-->
+<div class="container">
 <section id="striped-light">
   <div class="row">
       <div class="col-sm-12">
@@ -59,13 +60,13 @@
                                     
             
                       </div>
-                      <div class="col-md-1"> <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" (click)="searchBills()">Search</a></div>
+                      <div class="col-md-1"> <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" >Search</a></div>
                       <div class="col-1"> </div>
-                      <div class="col-3"> <input type="date"  [(ngModel)]="dp" class="form-control"></div>
+                      <div class="col-3"> <input type="date"  class="form-control"></div>
                           
                          
-                              <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
-                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
+                              <button type="button"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" >Today's Bills</button>
     
                             
                       
@@ -76,13 +77,13 @@
                                    
                                 </ul>
                                     </div>
-                    <div class="col-6"><div class="input-group" >
+                    <!-- <div class="col-6"><div class="input-group" >
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-search"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search Bill" name="searchText" [(ngModel)]="searchText" >
+                            <input type="text" class="form-control" placeholder="Search Bill" name="searchText"  >
                           </div></div>
-                   
+                    -->
                     <!-- <div class="col-md4"></div> -->
                     
                 </div>
@@ -121,4 +122,5 @@
       </div>
   </div>
 </section>
+</div>
 <!--Striped rows Light Ends-->

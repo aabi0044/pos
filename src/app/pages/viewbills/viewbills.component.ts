@@ -15,7 +15,7 @@ startDate= new Date();
 endDate=new Date("2018-12-30");
 filterByDate;
 user;
-  constructor(private api:ApiService,private router:Router) { this.daysInMonth(12,2018)}
+  constructor(public api:ApiService,private router:Router) { this.daysInMonth(12,2018)}
 
   ngOnInit() {
     this.viewBills();

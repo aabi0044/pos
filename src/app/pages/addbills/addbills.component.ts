@@ -32,11 +32,11 @@ export class AddbillsComponent implements OnInit {
   totaldiscountforbill:number=0;
   date = Date.now();
   private product: Product;
-  prd;
-  id;
+  prd:any;
+  id:any;
   searchText = '';
-uid;
-  constructor(private api: ApiService,private route:ActivatedRoute,private router:Router) { 
+uid:any;
+  constructor(public api: ApiService,private route:ActivatedRoute,private router:Router) { 
    console.log(this.api.bill.cid);
    if(this.api.bill.cid==''){
     this.router.navigate(['/type']);

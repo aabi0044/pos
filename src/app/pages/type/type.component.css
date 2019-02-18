@@ -2,3 +2,6 @@
     font-size: 25px !important;
     margin-top: 5px;
 }
+.container{
+    max-width: 100% !important;
+}

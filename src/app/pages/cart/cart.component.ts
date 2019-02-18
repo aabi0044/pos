@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
   manualbilldate;
   getdate;
   hidecheckout:boolean=true;
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(public api: ApiService, private router: Router) { }
 
 
   ngOnInit() {
