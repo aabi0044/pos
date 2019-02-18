@@ -28,6 +28,7 @@
     "bootstrap": "^4.2.1",
     "buffer": "^5.2.1",
     "core-js": "^2.5.4",
+    "electron-packager": "^13.0.1",
     "events": "^3.0.0",
     "firebase": "^5.7.1",
     "ngx-electron": "^2.1.1",
